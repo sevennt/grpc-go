@@ -22,6 +22,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"math"
 	"net"
 	"reflect"
@@ -835,6 +836,8 @@ func (ac *addrConn) tryUpdateAddrs(addrs []resolver.Address) bool {
 	for _, a := range addrs {
 		if reflect.DeepEqual(ac.curAddr, a) {
 			curAddrFound = true
+			log.Println(`curAddrFound--------------->`, curAddrFound)
+			log.Printf("ac.curAddr, a--------------->"+"%+v, %+v\n", ac.curAddr, a)
 			break
 		}
 	}
