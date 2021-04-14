@@ -834,10 +834,10 @@ func (ac *addrConn) tryUpdateAddrs(addrs []resolver.Address) bool {
 	// ac.state is Ready, try to find the connected address.
 	var curAddrFound bool
 	for _, a := range addrs {
+		log.Println(`curAddrFound--------------->`, curAddrFound)
+		log.Printf("ac.curAddr, a--------------->"+"%+v, %+v\n", ac.curAddr, a)
 		if reflect.DeepEqual(ac.curAddr, a) {
 			curAddrFound = true
-			log.Println(`curAddrFound--------------->`, curAddrFound)
-			log.Printf("ac.curAddr, a--------------->"+"%+v, %+v\n", ac.curAddr, a)
 			break
 		}
 	}
