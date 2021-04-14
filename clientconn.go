@@ -820,6 +820,7 @@ func (ac *addrConn) tryUpdateAddrs(addrs []resolver.Address) bool {
 	ac.mu.Lock()
 	defer ac.mu.Unlock()
 	channelz.Infof(ac.channelzID, "addrConn: tryUpdateAddrs curAddr: %v, addrs: %v", ac.curAddr, addrs)
+	fmt.Printf("ac.state, ac.curAddr, ac.addrs--------------->"+"%+v, %+v, %+v, %+v\n", ac.state, ac.curAddr, ac.addrs, addrs)
 	if ac.state == connectivity.Shutdown ||
 		ac.state == connectivity.TransientFailure ||
 		ac.state == connectivity.Idle {
